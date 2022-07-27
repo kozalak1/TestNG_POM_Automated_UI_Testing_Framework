@@ -16,7 +16,7 @@ public HomePage () {
     // ----------------- test case_01 -------------------- //
 
     @FindBy (xpath ="//a[@href='/login']")
-    public WebElement loginButton;
+    public WebElement signuploginButton;
 
     @FindBy (xpath = "//h2[text()='New User Signup!']")
     public WebElement newUserSignText;
@@ -74,6 +74,30 @@ public HomePage () {
 
     @FindBy (xpath = "(//li/a)[5]")
     public WebElement deleteAccountButton;
+
+    // ----------------- test case_02 -------------------- //
+
+    @FindBy (xpath = "//div/a/img [1]")
+    public WebElement homePageTitle;
+
+    @FindBy (xpath = "//div/h2[1]")
+    public WebElement loginYourAccount;
+
+    @FindBy(xpath = "//input[@type='email'][1]")
+    public WebElement loginEmail;
+
+    @FindBy(xpath = "//input[@type='password'][1]")
+    public WebElement loginPassword;
+
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement loginSubmitButton;
+
+    @FindBy(xpath = "(//li/a)[4]")
+    public WebElement logoutButton;
+
+    @FindBy (xpath = "//li/a/b")
+    public WebElement loggedUsername;
+
 
 
 }

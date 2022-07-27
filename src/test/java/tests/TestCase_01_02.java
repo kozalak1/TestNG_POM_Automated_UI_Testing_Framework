@@ -12,18 +12,21 @@ import utilities.Driver;
 
 import static utilities.Driver.driver;
 import static utilities.JsUtils.clickElementByJS;
+import static utilities.JsUtils.scrollIntoVIewJS;
 
 
-public class TestCase_01 {
+public class TestCase_01_02 {
 
 
     HomePage homePage = new HomePage();
     Faker faker = new Faker();
 
+    static String email ="";
+    static String password = "";
 
 
     @Test
-    public void registerUser () throws InterruptedException {
+    public void registerUser () {
        // 1. Launch browser
        // 2. Navigate to url 'http://automationexercise.com'
 
@@ -38,7 +41,7 @@ public class TestCase_01 {
 
         // 4. Click on 'Signup / Login' button
         // 5. Verify 'New User Signup!' is visible
-        homePage.loginButton.click();
+        homePage.signuploginButton.click();
         homePage.newUserSignText.isDisplayed();
 
         //6. Enter name and email address
@@ -46,7 +49,11 @@ public class TestCase_01 {
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
 
         homePage.nameBox.sendKeys(ConfigReader.getProperty("name"));
-        homePage.emailBox.sendKeys(faker.internet().emailAddress());
+
+        email= faker.internet().emailAddress();
+        System.out.println(email);
+        homePage.emailBox.sendKeys(email);
+
         homePage.signupButton.submit();
         String enterAccountInfoText = homePage.enterAccountInfo.getText();
         String expectedText = "ENTER ACCOUNT INFORMATION";
@@ -62,7 +69,11 @@ public class TestCase_01 {
         homePage.accountTitleRadioButton.click();
         //homePage.accountName.sendKeys(ConfigReader.getProperty("name"));
         //homePage.accountEmail.sendKeys(ConfigReader.getProperty("email"));
-        homePage.accountPassword.sendKeys(faker.internet().password());
+
+        password=faker.internet().password();
+        System.out.println(password);
+        homePage.accountPassword.sendKeys(password);
+
         Select select1 = new Select(homePage.dateOfBirth_days);
         select1.selectByValue("15");
 
@@ -104,7 +115,8 @@ public class TestCase_01 {
         // 15. Click 'Continue' button
         //16. Verify that 'Logged in as username' is visible
 
-      clickElementByJS(homePage.continueButton);
+        scrollIntoVIewJS(homePage.continueButton);
+        homePage.continueButton.click();
       homePage.loggedInText.isDisplayed();
 
         //17. Click 'Delete Account' button
@@ -112,9 +124,53 @@ public class TestCase_01 {
 
         clickElementByJS(homePage.deleteAccountButton);
 
+        Driver.getDriver().navigate().back();
+        Driver.getDriver().navigate().refresh();
+
+        homePage.logoutButton.click();
 
 
     }
 
+    @Test (dependsOnMethods = "registerUser" )
+    public void loginPositiveTest () {
+
+//1. Launch browser
+//2. Navigate to url 'http://automationexercise.com'
+        Driver.getDriver().get(ConfigReader.getProperty("aeUrl"));
+
+//3. Verify that home page is visible successfully
+        String title = Driver.getDriver().getTitle();
+        System.out.println(title);
+        Assert.assertTrue(title.contains("Automation"), "Home page is visible");
+
+//4. Click on 'Signup / Login' button
+//5. Verify 'Login to your account' is visible
+        clickElementByJS(homePage.signuploginButton);
+
+        String actualLoginYourAccount = homePage.loginYourAccount.getText();
+        //System.out.println(loginYourAccnt);
+        Assert.assertEquals(actualLoginYourAccount, "Login to your account");
+
+//6. Enter correct email address and password
+//7. Click 'login' button
+
+        homePage.loginEmail.sendKeys(email);
+        homePage.loginPassword.sendKeys(password);
+        homePage.loginSubmitButton.click();
+
+//8. Verify that 'Logged in as username' is visible
+//9. Click 'Delete Account' button
+//10. Verify that 'ACCOUNT DELETED!' is visible
+        String actualUsername= homePage.loggedUsername.getText();
+        System.out.println(actualUsername);
+        Assert.assertTrue(actualUsername.contains(ConfigReader.getProperty("name")));
+        homePage.deleteAccountButton.click();
+
+
+
+    }
+
+// login olmak için gerekli olan email ve passwordu registerUser isimli testde faker ile ürettiğimiz için 2 testi birlikte - ya da peş peşe çalıştırmamız gerekiyor.
 
 }

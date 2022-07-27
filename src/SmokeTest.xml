@@ -4,7 +4,9 @@
     <test name="smoke">
         <classes>
             <!--yorum yazmak icin -->
-            <class name="tests.TestCase_01"></class>
+            <class name="tests.TestCase_01_02"></class>
+
+
 
         </classes>
 
