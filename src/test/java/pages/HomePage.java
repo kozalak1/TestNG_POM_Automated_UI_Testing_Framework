@@ -98,6 +98,10 @@ public HomePage () {
     @FindBy (xpath = "//li/a/b")
     public WebElement loggedUsername;
 
+    // ----------------- test case_03 -------------------- //
+
+    @FindBy (xpath = "//p[text()='Your email or password is incorrect!']")
+    public WebElement emailAndPasswordIncorrectMsj;
 
 
 }

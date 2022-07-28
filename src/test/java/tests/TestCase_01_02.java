@@ -18,26 +18,32 @@ import static utilities.JsUtils.scrollIntoVIewJS;
 public class TestCase_01_02 {
 
 
-    HomePage homePage = new HomePage();
-    Faker faker = new Faker();
+    static HomePage homePage = new HomePage();
+    static Faker faker = new Faker();
 
     static String email ="";
     static String password = "";
 
-
     @Test
-    public void registerUser () {
-       // 1. Launch browser
-       // 2. Navigate to url 'http://automationexercise.com'
+    public static void homePageNavigateAndVisible(){
 
-       Driver.getDriver().get(ConfigReader.getProperty("aeUrl"));
+        // 1. Launch browser
+        // 2. Navigate to url 'http://automationexercise.com'
 
-       //  3. Verify that home page is visible successfully
+        Driver.getDriver().get(ConfigReader.getProperty("aeUrl"));
+
+        //  3. Verify that home page is visible successfully
 
         String actualHomePageTitle = Driver.getDriver().getTitle();
         System.out.println(actualHomePageTitle);
         String expectedHomePageTitle = ConfigReader.getProperty("title");
         Assert.assertEquals(actualHomePageTitle, expectedHomePageTitle);
+
+}
+    @Test
+    public static void registerUser () {
+
+        homePageNavigateAndVisible();
 
         // 4. Click on 'Signup / Login' button
         // 5. Verify 'New User Signup!' is visible
@@ -48,7 +54,7 @@ public class TestCase_01_02 {
         //7. Click 'Signup' button
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
 
-        homePage.nameBox.sendKeys(ConfigReader.getProperty("name"));
+        homePage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
 
         email= faker.internet().emailAddress();
         System.out.println(email);
@@ -133,16 +139,8 @@ public class TestCase_01_02 {
     }
 
     @Test (dependsOnMethods = "registerUser" )
-    public void loginPositiveTest () {
+    public void positiveLoginTest () {
 
-//1. Launch browser
-//2. Navigate to url 'http://automationexercise.com'
-        Driver.getDriver().get(ConfigReader.getProperty("aeUrl"));
-
-//3. Verify that home page is visible successfully
-        String title = Driver.getDriver().getTitle();
-        System.out.println(title);
-        Assert.assertTrue(title.contains("Automation"), "Home page is visible");
 
 //4. Click on 'Signup / Login' button
 //5. Verify 'Login to your account' is visible
@@ -160,11 +158,13 @@ public class TestCase_01_02 {
         homePage.loginSubmitButton.click();
 
 //8. Verify that 'Logged in as username' is visible
-//9. Click 'Delete Account' button
-//10. Verify that 'ACCOUNT DELETED!' is visible
         String actualUsername= homePage.loggedUsername.getText();
         System.out.println(actualUsername);
-        Assert.assertTrue(actualUsername.contains(ConfigReader.getProperty("name")));
+        Assert.assertTrue(actualUsername.contains(ConfigReader.getProperty("userName")));
+
+//9. Click 'Delete Account' button
+//10. Verify that 'ACCOUNT DELETED!' is visible
+
         homePage.deleteAccountButton.click();
 
 
@@ -172,5 +172,5 @@ public class TestCase_01_02 {
     }
 
 // login olmak için gerekli olan email ve passwordu registerUser isimli testde faker ile ürettiğimiz için 2 testi birlikte - ya da peş peşe çalıştırmamız gerekiyor.
-
+// sitenin ana sayfasına gitmek ve ana sayfanın görünür olması sürekli gerekli olacagı için ayrı bir test haline getirildi
 }
