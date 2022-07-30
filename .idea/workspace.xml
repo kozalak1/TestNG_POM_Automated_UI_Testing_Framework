@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7433091-9d13-421e-83d4-fda826712fc1" name="Changes" comment="TestCase_02">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" afterDir="false" />
+    <list default="true" id="c7433091-9d13-421e-83d4-fda826712fc1" name="Changes" comment="TestCase_03_04">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/SignupPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/resources/testData.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/ExcelDeneme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SmokeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SmokeTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_01_02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_01_02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_01_02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_01_02_05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ExcelUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,27 +43,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/test/java/tests/TestCase_01_02.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "two.files.diff.last.used.file": "C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/test/java/tests/TestCase_01_02.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/test/java/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/test/java/tests/TestCase_01_02.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Cemal\IdeaProjects\TestNG_POM_Framework_AutomationExercise\src\test\java\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Cemal\IdeaProjects\TestNG_POM_Framework_AutomationExercise\src" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.TestCase_04.logoutUser">
-    <configuration name="TestCase_01_02.homePageNavigateAndVisible" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.ExcelDeneme.ExcelTestDEneme">
+    <configuration name="C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/SmokeTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG_POM_Framework_AutomationExercise" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/SmokeTest.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExcelDeneme" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestNG_POM_Framework_AutomationExercise" />
       <extension name="coverage">
         <pattern>
@@ -67,8 +85,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestCase_01_02" />
-      <option name="METHOD_NAME" value="homePageNavigateAndVisible" />
+      <option name="MAIN_CLASS_NAME" value="tests.ExcelDeneme" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExcelDeneme.ExcelTestDEneme" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG_POM_Framework_AutomationExercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.ExcelDeneme" />
+      <option name="METHOD_NAME" value="ExcelTestDEneme" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -76,17 +111,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCase_01_02.loginPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ExcelUtil.writeToExcel" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestNG_POM_Framework_AutomationExercise" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="utilities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestCase_01_02" />
-      <option name="METHOD_NAME" value="loginPositiveTest" />
+      <option name="PACKAGE_NAME" value="utilities" />
+      <option name="MAIN_CLASS_NAME" value="utilities.ExcelUtil" />
+      <option name="METHOD_NAME" value="writeToExcel" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -94,7 +129,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCase_01_02.registerUser" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCase_01_02_05.registerExistingEmail" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestNG_POM_Framework_AutomationExercise" />
       <extension name="coverage">
         <pattern>
@@ -103,44 +138,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestCase_01_02" />
-      <option name="METHOD_NAME" value="registerUser" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestCase_03.negativeLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestNG_POM_Framework_AutomationExercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestCase_03" />
-      <option name="METHOD_NAME" value="negativeLoginTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestCase_04.logoutUser" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestNG_POM_Framework_AutomationExercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestCase_04" />
-      <option name="METHOD_NAME" value="logoutUser" />
+      <option name="MAIN_CLASS_NAME" value="tests.TestCase_01_02_05" />
+      <option name="METHOD_NAME" value="registerExistingEmail" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -150,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.TestCase_04.logoutUser" />
-        <item itemvalue="TestNG.TestCase_03.negativeLoginTest" />
-        <item itemvalue="TestNG.TestCase_01_02.homePageNavigateAndVisible" />
-        <item itemvalue="TestNG.TestCase_01_02.registerUser" />
-        <item itemvalue="TestNG.TestCase_01_02.loginPositiveTest" />
+        <item itemvalue="TestNG.ExcelDeneme.ExcelTestDEneme" />
+        <item itemvalue="TestNG.ExcelDeneme" />
+        <item itemvalue="TestNG.ExcelUtil.writeToExcel" />
+        <item itemvalue="TestNG.TestCase_01_02_05.registerExistingEmail" />
+        <item itemvalue="TestNG.C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/SmokeTest.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658931261102</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="TestCase_03_04">
+      <created>1659042038363</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659042038363</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +204,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="TestCase_01" />
     <MESSAGE value="TestCase_02" />
-    <option name="LAST_COMMIT_MESSAGE" value="TestCase_02" />
+    <MESSAGE value="TestCase_03_04" />
+    <option name="LAST_COMMIT_MESSAGE" value="TestCase_03_04" />
   </component>
 </project>

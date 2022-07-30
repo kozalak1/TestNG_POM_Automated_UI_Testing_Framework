@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import utilities.ConfigReader;
 
-import static tests.TestCase_01_02.email;
-import static tests.TestCase_01_02.password;
+import static tests.TestCase_01_02_05.email;
+import static tests.TestCase_01_02_05.password;
 import static utilities.JsUtils.clickElementByJS;
 
 public class TestCase_04 {
@@ -17,7 +17,7 @@ public class TestCase_04 {
     @Test
     public void logoutUser(){
 
-        TestCase_01_02.registerUser();
+        TestCase_01_02_05.registerUser();
 
         //4. Click on 'Signup / Login' button
         //5. Verify 'Login to your account' is visible

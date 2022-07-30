@@ -103,5 +103,9 @@ public HomePage () {
     @FindBy (xpath = "//p[text()='Your email or password is incorrect!']")
     public WebElement emailAndPasswordIncorrectMsj;
 
+    // ----------------- test case_05 (signUpPage) -------------------- //
+    @FindBy (xpath = "//p[text()='Email Address already exist!']")
+    public WebElement emailExistMsj;
+
 
 }

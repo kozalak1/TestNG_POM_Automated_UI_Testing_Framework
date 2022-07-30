@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ExcelUtil;
 
 import static utilities.Driver.driver;
 import static utilities.JsUtils.clickElementByJS;
 import static utilities.JsUtils.scrollIntoVIewJS;
 
 
-public class TestCase_01_02 {
+public class TestCase_01_02_05 {
 
 
     static HomePage homePage = new HomePage();
@@ -24,7 +25,7 @@ public class TestCase_01_02 {
     static String email ="";
     static String password = "";
 
-    @Test
+
     public static void homePageNavigateAndVisible(){
 
         // 1. Launch browser
@@ -123,7 +124,7 @@ public class TestCase_01_02 {
 
         scrollIntoVIewJS(homePage.continueButton);
         homePage.continueButton.click();
-      homePage.loggedInText.isDisplayed();
+        homePage.loggedInText.isDisplayed();
 
         //17. Click 'Delete Account' button
         //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
@@ -145,7 +146,6 @@ public class TestCase_01_02 {
 //4. Click on 'Signup / Login' button
 //5. Verify 'Login to your account' is visible
         clickElementByJS(homePage.signuploginButton);
-
         String actualLoginYourAccount = homePage.loginYourAccount.getText();
         //System.out.println(loginYourAccnt);
         Assert.assertEquals(actualLoginYourAccount, "Login to your account");
@@ -167,9 +167,34 @@ public class TestCase_01_02 {
 
         homePage.deleteAccountButton.click();
 
+    }
 
+    @Test (dependsOnMethods = "registerUser")
+    public void registerExistingEmail(){
+
+        //1. Launch browser
+        //2. Navigate to url 'http://automationexercise.com'
+        //3. Verify that home page is visible successfully
+        homePageNavigateAndVisible();
+
+        // 4. Click on 'Signup / Login' button
+        // 5. Verify 'New User Signup!' is visible
+        homePage.signuploginButton.click();
+        homePage.newUserSignText.isDisplayed();
+
+        //6. Enter name and already registered email address
+        homePage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
+        homePage.emailBox.sendKeys(email); // registered email address above
+
+        //7. Click 'Signup' button
+        homePage.signupButton.click();
+        //8. Verify error 'Email Address already exist!' is visible
+        homePage.emailExistMsj.isDisplayed();
 
     }
+
+
+
 
 // login olmak için gerekli olan email ve passwordu registerUser isimli testde faker ile ürettiğimiz için 2 testi birlikte - ya da peş peşe çalıştırmamız gerekiyor.
 // sitenin ana sayfasına gitmek ve ana sayfanın görünür olması sürekli gerekli olacagı için ayrı bir test haline getirildi

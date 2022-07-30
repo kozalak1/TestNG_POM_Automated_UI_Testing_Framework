@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import utilities.ConfigReader;
-import utilities.Driver;
 
 import static utilities.JsUtils.clickElementByJS;
 
@@ -15,7 +14,7 @@ public class TestCase_03 {
     @Test
     public void negativeLoginTest () {
 
-        TestCase_01_02.homePageNavigateAndVisible();
+        TestCase_01_02_05.homePageNavigateAndVisible();
 
         //4. Click on 'Signup / Login' button
         //5. Verify 'Login to your account' is visible
