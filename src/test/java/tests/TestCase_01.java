@@ -7,24 +7,27 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.SignupPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ExcelUtil;
+
+import java.io.IOException;
 
 import static utilities.Driver.driver;
+import static utilities.ExcelUtil.writeToExcel;
 import static utilities.JsUtils.clickElementByJS;
 import static utilities.JsUtils.scrollIntoVIewJS;
 
-
-public class TestCase_01_02_05 {
-
+public class TestCase_01 {
 
     static HomePage homePage = new HomePage();
-    static Faker faker = new Faker();
+    static SignupPage signupPage = new SignupPage();
 
-    static String email ="";
+    static Faker faker = new Faker();
+    public static String email ="";
     static String password = "";
 
+// sitenin ana sayfasına gitmek ve ana sayfanın görünür olması sürekli gerekli olacagı için ayrı bir metod haline getirildi
 
     public static void homePageNavigateAndVisible(){
 
@@ -39,30 +42,29 @@ public class TestCase_01_02_05 {
         System.out.println(actualHomePageTitle);
         String expectedHomePageTitle = ConfigReader.getProperty("title");
         Assert.assertEquals(actualHomePageTitle, expectedHomePageTitle);
-
 }
     @Test
-    public static void registerUser () {
+    public static void registerUser () throws IOException {
 
         homePageNavigateAndVisible();
 
         // 4. Click on 'Signup / Login' button
         // 5. Verify 'New User Signup!' is visible
-        homePage.signuploginButton.click();
-        homePage.newUserSignText.isDisplayed();
+        signupPage.signuploginButton.click();
+        signupPage.newUserSignText.isDisplayed();
 
         //6. Enter name and email address
         //7. Click 'Signup' button
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
 
-        homePage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
+        signupPage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
 
         email= faker.internet().emailAddress();
-        System.out.println(email);
-        homePage.emailBox.sendKeys(email);
 
-        homePage.signupButton.submit();
-        String enterAccountInfoText = homePage.enterAccountInfo.getText();
+        signupPage.emailBox.sendKeys(email);
+
+        signupPage.signupButton.submit();
+        String enterAccountInfoText = signupPage.enterAccountInfo.getText();
         String expectedText = "ENTER ACCOUNT INFORMATION";
         Assert.assertEquals(enterAccountInfoText, expectedText);
 
@@ -73,30 +75,30 @@ public class TestCase_01_02_05 {
         //13. Click 'Create Account button'
         //14. Verify that 'ACCOUNT CREATED!' is visible
 
-        homePage.accountTitleRadioButton.click();
-        //homePage.accountName.sendKeys(ConfigReader.getProperty("name"));
-        //homePage.accountEmail.sendKeys(ConfigReader.getProperty("email"));
+        signupPage.accountTitleRadioButton.click();
 
         password=faker.internet().password();
-        System.out.println(password);
-        homePage.accountPassword.sendKeys(password);
+        writeToExcel(email, password); // faker ile ürettiğim email ve şifreyi sonraki testlerde kullanacagım için excel file a kaydettim
+        System.out.println(email+"/n"+password);
 
-        Select select1 = new Select(homePage.dateOfBirth_days);
+        signupPage.accountPassword.sendKeys(password);
+
+        Select select1 = new Select(signupPage.dateOfBirth_days);
         select1.selectByValue("15");
 
-        Select select2 = new Select(homePage.dateOfBirth_months);
+        Select select2 = new Select(signupPage.dateOfBirth_months);
         select2.selectByIndex(1);
 
-        Select select3 = new Select(homePage.dateOfBirth_years);
+        Select select3 = new Select(signupPage.dateOfBirth_years);
         select3.selectByValue("1983");
 
-        homePage.checkboxNewsletter.click();
-        homePage.checkboxOptin.click();
+        signupPage.checkboxNewsletter.click();
+        signupPage.checkboxOptin.click();
         //homePage.addressFirstName.sendKeys(faker.name().firstName());
 
         Actions actions = new Actions(driver);
 
-        actions.click(homePage.addressFirstName)
+        actions.click(signupPage.addressFirstName)
                 .sendKeys(faker.name().firstName())
                 .sendKeys(Keys.TAB)
                 .sendKeys(faker.name().lastName())
@@ -122,80 +124,20 @@ public class TestCase_01_02_05 {
         // 15. Click 'Continue' button
         //16. Verify that 'Logged in as username' is visible
 
-        scrollIntoVIewJS(homePage.continueButton);
-        homePage.continueButton.click();
-        homePage.loggedInText.isDisplayed();
+        scrollIntoVIewJS(signupPage.continueButton);
+        signupPage.continueButton.click();
+        signupPage.loggedInText.isDisplayed();
 
         //17. Click 'Delete Account' button
         //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
-        clickElementByJS(homePage.deleteAccountButton);
+        clickElementByJS(signupPage.deleteAccountButton);
 
         Driver.getDriver().navigate().back();
         Driver.getDriver().navigate().refresh();
 
         homePage.logoutButton.click();
 
-
     }
 
-    @Test (dependsOnMethods = "registerUser" )
-    public void positiveLoginTest () {
-
-
-//4. Click on 'Signup / Login' button
-//5. Verify 'Login to your account' is visible
-        clickElementByJS(homePage.signuploginButton);
-        String actualLoginYourAccount = homePage.loginYourAccount.getText();
-        //System.out.println(loginYourAccnt);
-        Assert.assertEquals(actualLoginYourAccount, "Login to your account");
-
-//6. Enter correct email address and password
-//7. Click 'login' button
-
-        homePage.loginEmail.sendKeys(email);
-        homePage.loginPassword.sendKeys(password);
-        homePage.loginSubmitButton.click();
-
-//8. Verify that 'Logged in as username' is visible
-        String actualUsername= homePage.loggedUsername.getText();
-        System.out.println(actualUsername);
-        Assert.assertTrue(actualUsername.contains(ConfigReader.getProperty("userName")));
-
-//9. Click 'Delete Account' button
-//10. Verify that 'ACCOUNT DELETED!' is visible
-
-        homePage.deleteAccountButton.click();
-
-    }
-
-    @Test (dependsOnMethods = "registerUser")
-    public void registerExistingEmail(){
-
-        //1. Launch browser
-        //2. Navigate to url 'http://automationexercise.com'
-        //3. Verify that home page is visible successfully
-        homePageNavigateAndVisible();
-
-        // 4. Click on 'Signup / Login' button
-        // 5. Verify 'New User Signup!' is visible
-        homePage.signuploginButton.click();
-        homePage.newUserSignText.isDisplayed();
-
-        //6. Enter name and already registered email address
-        homePage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
-        homePage.emailBox.sendKeys(email); // registered email address above
-
-        //7. Click 'Signup' button
-        homePage.signupButton.click();
-        //8. Verify error 'Email Address already exist!' is visible
-        homePage.emailExistMsj.isDisplayed();
-
-    }
-
-
-
-
-// login olmak için gerekli olan email ve passwordu registerUser isimli testde faker ile ürettiğimiz için 2 testi birlikte - ya da peş peşe çalıştırmamız gerekiyor.
-// sitenin ana sayfasına gitmek ve ana sayfanın görünür olması sürekli gerekli olacagı için ayrı bir test haline getirildi
 }

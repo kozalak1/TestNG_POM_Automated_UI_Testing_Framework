@@ -2,10 +2,8 @@ package utilities;
 
 import org.apache.poi.ss.usermodel.*;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
@@ -67,21 +65,21 @@ public class ExcelUtil {
         }
 
     }
-    static public void writeToExcel () throws IOException {
+     public static void writeToExcel (String email, String password) throws IOException {
 
         String path = "src/test/java/resources/testData.xlsx";
         FileInputStream fis = new FileInputStream(path);
         Workbook workbook = WorkbookFactory.create(fis); // org.apache.poi dependency ile geldi; butun Ms office dosyaları için kullanabiliriz
-        // workbook a aldıgımız kopyaladıgımız orjinal excel dosyası degil bir kopyası (gölgesi) üzerinde işlem yapıyoruz; o yuzden sonrasında orjinal dosyaya kaydetmemiz lazım
+        // workbook a aldıgımız kopyaladıgımız orjinal excel dosyası degil bir kopyası (gölgesi) üzerinde işlem yapıyoruz;
+        // o yuzden sonrasında orjinal dosyaya kaydetmemiz lazım
 
-        workbook.getSheet("page_1").getRow(0).createCell(0).setCellValue("8888");
-
+        workbook.getSheet("page_1").getRow(0).createCell(0).setCellValue(email);
+        workbook.getSheet("page_1").getRow(0).createCell(1).setCellValue(password);
 
         //  kopyada yaptigimiz degisiklikleri orjinal excel dosyasına kaydedelim
 
         FileOutputStream fos=new FileOutputStream(path);
         workbook.write(fos);
-
 
     }
 
@@ -103,7 +101,8 @@ public class ExcelUtil {
     }
 
 
-// dosya yolu ve sayfa ismi verilen bir excel sheet'i map olarak kaydeder; burada excel'i oldugu gibi Map'in içine alarak istediğimiz işlemleri yapabilriz
+// dosya yolu ve sayfa ismi verilen bir excel sheet'i map olarak kaydeder
+// burada excel'i oldugu gibi Map'in içine alarak istediğimiz işlemleri yapmak için bize bir excelmap dosyası RETURN eder
 // bunun için de Map yapısı geregi öncelikle Excel'de hangi veriyi "Key" hangi ya da hangilerini "Value" yapacagımıza karar vermeliyiz
     public static Map<String,String> ExcelToMap(String path, String sayfaAdi) {
 

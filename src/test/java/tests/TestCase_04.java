@@ -3,38 +3,44 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.LoginPage;
+import pages.SignupPage;
 import utilities.ConfigReader;
 
-import static tests.TestCase_01_02_05.email;
-import static tests.TestCase_01_02_05.password;
+import java.io.IOException;
+
+import static tests.TestCase_01.email;
+import static tests.TestCase_01.password;
 import static utilities.JsUtils.clickElementByJS;
 
 public class TestCase_04 {
 
-    HomePage homePage = new HomePage();
+    static HomePage homePage = new HomePage();
+    static SignupPage signupPage = new SignupPage();
+    static LoginPage loginPage = new LoginPage();
 
 
     @Test
-    public void logoutUser(){
+    public void logoutUser() throws IOException {
 
-        TestCase_01_02_05.registerUser();
+        TestCase_01.registerUser();
 
         //4. Click on 'Signup / Login' button
         //5. Verify 'Login to your account' is visible
-        clickElementByJS(homePage.signuploginButton);
-        String actualLoginYourAccount = homePage.loginYourAccount.getText();
+        clickElementByJS(signupPage.signuploginButton);
+        String actualLoginYourAccount = loginPage.loginYourAccount.getText();
         //System.out.println(loginYourAccnt);
         Assert.assertEquals(actualLoginYourAccount, "Login to your account");
 
         //6. Enter correct email address and password
         //7. Click 'login' button
 
-        homePage.loginEmail.sendKeys(email);
-        homePage.loginPassword.sendKeys(password);
-        homePage.loginSubmitButton.click();
+        loginPage.loginEmail.sendKeys(email);
+        loginPage.loginPassword.sendKeys(password);
+        loginPage.loginSubmitButton.click();
 
         //8. Verify that 'Logged in as username' is visible
-        String actualUsername= homePage.loggedUsername.getText();
+        String actualUsername= loginPage.loggedUsername.getText();
         System.out.println(actualUsername);
         Assert.assertTrue(actualUsername.contains(ConfigReader.getProperty("userName")));
 
@@ -43,7 +49,7 @@ public class TestCase_04 {
 
         //10. Verify that user is navigated to login page
 
-        homePage.signuploginButton.isDisplayed();
+        signupPage.signuploginButton.isDisplayed();
 
     }
 }
