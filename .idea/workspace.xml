@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7433091-9d13-421e-83d4-fda826712fc1" name="Changes" comment="TestCase_05_ExcelRead_andWrite">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SmokeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SmokeTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SignupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SignupPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resources/testData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/testData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ExcelDeneme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_01_02_05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ExcelUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="c7433091-9d13-421e-83d4-fda826712fc1" name="Changes" comment="31/07" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659186133435</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="31/07">
+      <created>1659289023563</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659289023563</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +216,7 @@
     <MESSAGE value="TestCase_02" />
     <MESSAGE value="TestCase_03_04" />
     <MESSAGE value="TestCase_05_ExcelRead_andWrite" />
-    <option name="LAST_COMMIT_MESSAGE" value="TestCase_05_ExcelRead_andWrite" />
+    <MESSAGE value="31/07" />
+    <option name="LAST_COMMIT_MESSAGE" value="31/07" />
   </component>
 </project>
