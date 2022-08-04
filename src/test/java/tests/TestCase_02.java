@@ -7,8 +7,8 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.SignupPage;
 import utilities.ConfigReader;
+import utilities.ReusableMethods;
 
-import static tests.TestCase_01.homePageNavigateAndVisible;
 import static utilities.ExcelUtil.bringCellValue;
 import static utilities.JsUtils.clickElementByJS;
 import static utilities.JsUtils.scrollIntoVIewJS;
@@ -23,7 +23,7 @@ public class TestCase_02 {
     @Test
     public void positiveLoginTest () throws InterruptedException {
 
-        homePageNavigateAndVisible();
+        ReusableMethods.homePageNavigateAndVisible();
 
 //4. Click on 'Signup / Login' button
 //5. Verify 'Login to your account' is visible

@@ -3,15 +3,20 @@ package tests;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SignupPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import static utilities.Driver.driver;
 import static utilities.ExcelUtil.writeToExcel;
@@ -27,26 +32,12 @@ public class TestCase_01 {
     public static String email ="";
     static String password = "";
 
-// sitenin ana sayfasına gitmek ve ana sayfanın görünür olması sürekli gerekli olacagı için ayrı bir metod haline getirildi
 
-    public static void homePageNavigateAndVisible(){
 
-        // 1. Launch browser
-        // 2. Navigate to url 'http://automationexercise.com'
-
-        Driver.getDriver().get(ConfigReader.getProperty("aeUrl"));
-
-        //  3. Verify that home page is visible successfully
-
-        String actualHomePageTitle = Driver.getDriver().getTitle();
-        System.out.println(actualHomePageTitle);
-        String expectedHomePageTitle = ConfigReader.getProperty("title");
-        Assert.assertEquals(actualHomePageTitle, expectedHomePageTitle);
-}
     @Test
     public static void registerUser () throws IOException {
 
-        homePageNavigateAndVisible();
+        ReusableMethods.homePageNavigateAndVisible();
 
         // 4. Click on 'Signup / Login' button
         // 5. Verify 'New User Signup!' is visible
@@ -79,7 +70,7 @@ public class TestCase_01 {
 
         password=faker.internet().password();
         writeToExcel(email, password); // faker ile ürettiğim email ve şifreyi sonraki testlerde kullanacagım için excel file a kaydettim
-        System.out.println(email+"/n"+password);
+        System.out.println(email+"\n"+password);
 
         signupPage.accountPassword.sendKeys(password);
 
@@ -95,7 +86,7 @@ public class TestCase_01 {
         signupPage.checkboxNewsletter.click();
         signupPage.checkboxOptin.click();
         //homePage.addressFirstName.sendKeys(faker.name().firstName());
-
+        
         Actions actions = new Actions(driver);
 
         actions.click(signupPage.addressFirstName)
@@ -122,10 +113,17 @@ public class TestCase_01 {
                 .perform(); // Actions class'ında bu komut mutlaka en sonunda yer almak zorunda
 
         // 15. Click 'Continue' button
-        //16. Verify that 'Logged in as username' is visible
 
-        scrollIntoVIewJS(signupPage.continueButton);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(signupPage.continueButton));
+        // explicitly wait kullanabilmek icin once wait objesi olusturduk
+        // web element zaten gorunur olmadigindan locate etmemiz de mumkun olmayacak
+        // bu durumda locate ve bekleme islemini beraber yapmak gerekir
+        // driver'ımızı until() metodu ile beklediğimiz / istediğimiz koşul olana kadar bekletiyoruz
+
         signupPage.continueButton.click();
+
+        //16. Verify that 'Logged in as username' is visible
         signupPage.loggedInText.isDisplayed();
 
         //17. Click 'Delete Account' button

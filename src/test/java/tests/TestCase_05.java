@@ -1,16 +1,20 @@
 package tests;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.SignupPage;
 import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
-import static tests.TestCase_01.homePageNavigateAndVisible;
+import static utilities.ExcelUtil.bringCellValue;
+import static utilities.JsUtils.clickElementByJS;
+
 
 public class TestCase_05 {
 
-    static HomePage homePage = new HomePage();
     static SignupPage signupPage = new SignupPage();
     static LoginPage loginPage = new LoginPage();
 
@@ -20,16 +24,26 @@ public class TestCase_05 {
         //1. Launch browser
         //2. Navigate to url 'http://automationexercise.com'
         //3. Verify that home page is visible successfully
-        homePageNavigateAndVisible();
+        ReusableMethods.homePageNavigateAndVisible();
 
         // 4. Click on 'Signup / Login' button
         // 5. Verify 'New User Signup!' is visible
-        signupPage.signuploginButton.click();
+
+        clickElementByJS(signupPage.signuploginButton);
+
         signupPage.newUserSignText.isDisplayed();
 
-        //6. Enter name and already registered email address
+        //6. Enter name (username) and already registered email address
         signupPage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
-        // homePage.emailBox.sendKeys(email); // registered email address above
+
+        String path = "src/test/java/resources/testData.xlsx";
+        String sayfaAdi = "page_1";
+        int satirIndex = 0;
+        int hucreIndex = 0;
+        // registerUser metodunda faker class ile urettiğimiz ve Excel e kaydettiğimiz email adresini aşağıdaki metod ile Excel den okuyup tekrar register yapmaya çalışacaz
+        Cell cell1 = bringCellValue(path, sayfaAdi, satirIndex, hucreIndex);
+        String email = String.valueOf((cell1));
+        signupPage.emailBox.sendKeys(email);
 
         //7. Click 'Signup' button
         signupPage.signupButton.click();

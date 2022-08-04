@@ -5,7 +5,8 @@
         <classes>
             <!--yorum yazmak icin -->
             <class name="tests.TestCase_01"></class>
-
+            <class name="tests.TestCase_02"></class>
+            <class name="tests.TestCase_05"></class>
 
 
         </classes>

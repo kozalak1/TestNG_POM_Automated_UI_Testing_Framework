@@ -6,6 +6,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.SignupPage;
 import utilities.ConfigReader;
+import utilities.ReusableMethods;
 
 import static utilities.JsUtils.clickElementByJS;
 
@@ -18,7 +19,7 @@ public class TestCase_03 {
     @Test
     public void negativeLoginTest () {
 
-        TestCase_01.homePageNavigateAndVisible();
+       ReusableMethods.homePageNavigateAndVisible();
 
         //4. Click on 'Signup / Login' button
         //5. Verify 'Login to your account' is visible
