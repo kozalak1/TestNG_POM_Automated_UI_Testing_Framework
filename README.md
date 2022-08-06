@@ -1,5 +1,4 @@
 # TestNG_POM_Automated_UI_Testing_Framework
-UI Automation Testing, Selenium WebDriver, automationexercise.com
 Developed and maintained the maven project using Selenium 4 with Java SE from scratch.
 Performed the functional tests (positive and negative scenarios) using the TestNG Page Object Model framework.
 Pages, Utilities and Tests packages were designed through the Page Object Model pattern.
