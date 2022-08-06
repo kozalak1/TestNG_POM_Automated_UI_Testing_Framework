@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7433091-9d13-421e-83d4-fda826712fc1" name="Changes" comment="31/07">
+    <list default="true" id="c7433091-9d13-421e-83d4-fda826712fc1" name="Changes" comment="04/08">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SmokeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SmokeTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/resources/testData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/testData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCase_05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCase_05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ReusableMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ReusableMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,35 +56,7 @@
       <recent name="C:\Users\Cemal\IdeaProjects\TestNG_POM_Framework_AutomationExercise\src" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/SmokeTest.xml">
-    <configuration name="C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/SmokeTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestNG_POM_Framework_AutomationExercise" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/SmokeTest.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestCase_01.positiveLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestNG_POM_Framework_AutomationExercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestCase_01" />
-      <option name="METHOD_NAME" value="positiveLoginTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.TestCase_05.registerExistingEmail">
     <configuration name="TestCase_01.registerUser" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestNG_POM_Framework_AutomationExercise" />
       <extension name="coverage">
@@ -110,7 +75,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCase_03.negativeLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCase_02.positiveLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG_POM_Framework_AutomationExercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.TestCase_02" />
+      <option name="METHOD_NAME" value="positiveLoginTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCase_03" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestNG_POM_Framework_AutomationExercise" />
       <extension name="coverage">
         <pattern>
@@ -120,8 +103,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.TestCase_03" />
-      <option name="METHOD_NAME" value="negativeLoginTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -166,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/Cemal/IdeaProjects/TestNG_POM_Framework_AutomationExercise/src/SmokeTest.xml" />
-        <item itemvalue="TestNG.TestCase_01.registerUser" />
         <item itemvalue="TestNG.TestCase_05.registerExistingEmail" />
         <item itemvalue="TestNG.TestCase_04.logoutUser" />
-        <item itemvalue="TestNG.TestCase_03.negativeLoginTest" />
+        <item itemvalue="TestNG.TestCase_03" />
+        <item itemvalue="TestNG.TestCase_02.positiveLoginTest" />
+        <item itemvalue="TestNG.TestCase_01.registerUser" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659449018035</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="04/08">
+      <created>1659644414730</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659644414730</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +234,7 @@
     <MESSAGE value="TestCase_03_04" />
     <MESSAGE value="TestCase_05_ExcelRead_andWrite" />
     <MESSAGE value="31/07" />
-    <option name="LAST_COMMIT_MESSAGE" value="31/07" />
+    <MESSAGE value="04/08" />
+    <option name="LAST_COMMIT_MESSAGE" value="04/08" />
   </component>
 </project>
