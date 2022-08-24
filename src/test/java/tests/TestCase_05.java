@@ -28,7 +28,7 @@ public class TestCase_05 {
 
         // 4. Click on 'Signup / Login' button
         // 5. Verify 'New User Signup!' is visible
-
+        //ReusableMethods.fluentWait(signupPage.signuploginButton, 10);
         clickElementByJS(signupPage.signuploginButton);
 
         signupPage.newUserSignText.isDisplayed();
