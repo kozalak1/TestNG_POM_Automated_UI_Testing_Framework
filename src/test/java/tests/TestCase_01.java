@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SignupPage;
@@ -34,8 +35,8 @@ public class TestCase_01 {
 
 
 
-    @Test
-    public static void registerUser () throws IOException {
+    @Test (dataProvider = "userName")
+    public static void registerUser (String userName) throws IOException {
 
         ReusableMethods.homePageNavigateAndVisible();
 
@@ -48,7 +49,7 @@ public class TestCase_01 {
         //7. Click 'Signup' button
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
 
-        signupPage.nameBox.sendKeys(ConfigReader.getProperty("userName"));
+        signupPage.nameBox.sendKeys(userName); // userName i dataprovider ile sağlıyoruz.
 
         email= faker.internet().emailAddress();
 
@@ -136,6 +137,12 @@ public class TestCase_01 {
 
         homePage.logoutButton.click();
 
+    }
+    // dataprovider ile DDT consepti uygulanır, aşağıdaki 3 farklı username kullanılarak test 3 kez çalıştırılır
+    @DataProvider(name = "userName")
+    public Object [][] user() {
+        String [][] user = {{"hakan"}, {"kemal"}, {"can"}};
+        return user;
     }
 
 }
