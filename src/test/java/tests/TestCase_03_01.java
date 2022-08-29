@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -11,8 +10,9 @@ import utilities.ReusableMethods;
 
 import static utilities.JsUtils.clickElementByJS;
 
-public class TestCase_03 {
+public class TestCase_03_01 {
 
+    // a decision rule of first
     static HomePage homePage = new HomePage();
     static SignupPage signupPage = new SignupPage();
     static LoginPage loginPage = new LoginPage();
@@ -38,7 +38,6 @@ public class TestCase_03 {
 
         //8. Verify error 'Your email or password is incorrect!' is visible
         homePage.emailAndPasswordIncorrectMsj.isDisplayed();
-
 
     }
 
